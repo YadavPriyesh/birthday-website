@@ -113,19 +113,31 @@ const initTypewriter = () => {
   const target = document.getElementById("typewriterText");
   if (!target) return;
 
-  const letter = `Dear Radhika Di,
+  const letter = `**Dear Radhika Di,**
 
-Life changes, people grow, and responsibilities increase, but one thing will never change — my respect and love for you.
+Wishing you a very Happy Birthday! 🎂✨
 
-You have always been my guide, protector, and biggest supporter. Thank you for every sacrifice, every scolding that made me better, and every smile that gave me confidence.
+I just want to remind you that you are capable of achieving much more than you think. You have always worked hard, stayed patient, and handled responsibilities with strength and maturity.
 
-On your birthday, I don’t just wish you happiness. I wish you peace in your heart, strength in difficult moments, success in your dreams, and endless reasons to smile every day.
+The next **5 years** are going to be important for you, and I truly believe that **everything will fall into place**. Your career, your goals, your dreams, and the life you want — step by step, **sab ho jayega**. Keep learning, keep growing, and never doubt your abilities.
 
-You are not just my sister — you are my blessing.
+There may be challenges sometimes, but I am sure they will only make you stronger and more successful. One day you will look back and realize that all the hard work was worth it.
 
-Happy Birthday, Di.
+My wish for you is simple:
 
-— Priyesh ❤️`;
+* Keep progressing in your career 🚀
+* Stay healthy and confident 🌸
+* Travel, explore, and enjoy life ✨
+* Achieve every goal you have set for yourself 🎯
+
+I am confident that the coming years will bring **success, happiness, stability, and many new opportunities** for you. Your best chapter is still ahead.
+
+**Happy Birthday, Di!** 🌸
+
+Keep shining, keep winning, and remember — **the next 5 years will change everything for the better.**
+
+**— Priyesh ❤️**
+`;
 
   let index = 0;
 
