@@ -233,6 +233,71 @@ p {
   margin-bottom: 1rem;
 }
 
+/* =========================
+   Radhika Di Photo Section
+========================= */
+.di-photo-section {
+  margin: 3rem 0 4rem;
+}
+
+.di-photo-card {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  border-radius: 28px;
+}
+
+.photo-frame {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, #fb7185, #f59e0b, #fde68a);
+  box-shadow: 0 20px 40px rgba(225, 29, 72, 0.18);
+}
+
+.photo-frame::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  pointer-events: none;
+}
+
+.di-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  display: block;
+}
+
+.photo-text h2 {
+  margin-bottom: 1rem;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+}
+
+.photo-text p {
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .di-photo-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .photo-frame {
+    max-width: 220px;
+  }
+}
+
 .subtitle {
   font-size: 1.1rem;
   max-width: 560px;
@@ -561,70 +626,6 @@ p {
   margin: 0 auto;
   font-size: 1.08rem;
 }
-/* =========================
-   Radhika Di Photo Section
-========================= */
-.di-photo-section {
-  margin: 3rem 0 4rem;
-}
-
-.di-photo-card {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  align-items: center;
-  gap: 2rem;
-  padding: 2rem;
-  border-radius: 28px;
-}
-
-.photo-frame {
-  position: relative;
-  width: 100%;
-  max-width: 280px;
-  aspect-ratio: 1 / 1;
-  margin: 0 auto;
-  padding: 10px;
-  border-radius: 28px;
-  background: linear-gradient(135deg, #fb7185, #f59e0b, #fde68a);
-  box-shadow: 0 20px 40px rgba(225, 29, 72, 0.18);
-}
-
-.photo-frame::before {
-  content: "";
-  position: absolute;
-  inset: 8px;
-  border-radius: 22px;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  pointer-events: none;
-}
-
-.di-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 20px;
-  display: block;
-}
-
-.photo-text h2 {
-  margin-bottom: 1rem;
-  font-size: clamp(1.8rem, 3vw, 2.6rem);
-}
-
-.photo-text p {
-  margin-bottom: 1rem;
-}
-
-@media (max-width: 768px) {
-  .di-photo-card {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .photo-frame {
-    max-width: 220px;
-  }
-}
 
 .timeline-section {
   position: relative;
@@ -785,18 +786,6 @@ p {
 .surprise-button:hover {
   transform: translateY(-3px);
   box-shadow: 0 22px 36px rgba(225, 29, 72, 0.34);
-}
-
-.next-page-wrapper {
-  margin-top: 1.5rem;
-  opacity: 0;
-  transform: translateY(12px);
-  transition: all 0.5s ease;
-}
-
-.next-page-wrapper.show {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .balloon-section,
