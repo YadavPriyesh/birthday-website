@@ -262,3 +262,27 @@ document.addEventListener("DOMContentLoaded", () => {
   initBlessingWheel();
   initFinalSurprise();
 });
+
+// =========================================
+// Auto play song on memories & celebration pages
+// =========================================
+const initPageSong = () => {
+  const pageSong = document.getElementById("pageSong");
+
+  if (!pageSong) return;
+
+  pageSong.volume = 0.5;
+
+  const playSong = () => {
+    pageSong.play().catch(() => {});
+  };
+
+  // Try immediately
+  playSong();
+
+  // Fallback for mobile browsers
+  document.addEventListener("click", playSong, { once: true });
+};
+
+// Add this inside DOMContentLoaded
+initPageSong();
