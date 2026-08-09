@@ -61,51 +61,44 @@ const initLandingPage = () => {
     if (started) return;
     started = true;
 
-    // Cake animation
     cake.classList.add("celebrating");
     flame?.classList.add("sparkle");
     glow?.classList.add("active");
 
-    // Play birthday song
+    // 🎵 PLAY FULL SONG
     if (audio) {
       try {
         audio.currentTime = 0;
-        audio.volume = 0.9;
+        audio.volume = 1;
         await audio.play();
-        console.log("🎵 Birthday song started successfully");
       } catch (error) {
-        console.error("Song could not play:", error);
-        alert(
-          "Please make sure 'birthday.mp3' is present in the same folder as index.html"
-        );
+        console.error("Audio error:", error);
+        alert("birthday.mp3 file same folder me rakho");
       }
     }
 
-    // Celebration effects
     createConfetti(confettiContainer, 120);
     createFloatingHearts(heartsContainer, 24);
 
-    // Show wish message
     wishMessage?.classList.remove("hidden");
 
     requestAnimationFrame(() => {
       wishMessage?.classList.add("show");
     });
 
-    // Show manual next button
+    // ❌ NO AUTOMATIC REDIRECT
+    // Button tabhi dikhega, page khud nahi badhega
     setTimeout(() => {
       nextPageWrapper?.classList.remove("hidden");
 
       requestAnimationFrame(() => {
         nextPageWrapper?.classList.add("show");
       });
-    }, 2200);
+    }, 2500);
   };
 
-  // Mouse click
   cake.addEventListener("click", startSurprise);
 
-  // Keyboard accessibility
   cake.addEventListener("keydown", (event) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
@@ -113,7 +106,6 @@ const initLandingPage = () => {
     }
   });
 };
-
 // =========================================
 // Typewriter Letter
 // =========================================
