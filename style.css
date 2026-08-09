@@ -11,7 +11,14 @@
   --glass: rgba(255, 255, 255, 0.22);
   --glass-border: rgba(255, 255, 255, 0.45);
 }
-
+#typewriterText {
+  white-space: pre-wrap;
+  font-size: 1rem;
+  line-height: 1.8;
+  text-align: left;
+  word-break: break-word;
+  padding: 1rem;
+}
 * {
   margin: 0;
   padding: 0;
