@@ -12,8 +12,6 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="landing-page">
-  <div class="rangoli rangoli-left"></div>
-  <div class="rangoli rangoli-right"></div>
 
   <div class="particles">
     <span></span><span></span><span></span><span></span>
@@ -21,6 +19,7 @@
   </div>
 
   <main class="hero">
+
     <p class="handwritten">For the best sister in the world</p>
 
     <h1>Happy Birthday, Radhika Di 🎂💖</h1>
@@ -30,44 +29,42 @@
     </p>
 
     <div class="cake-wrapper">
-      <div class="cake-glow"></div>
-
-      <div class="cake-container" id="cakeContainer" aria-label="Birthday Cake" role="button" tabindex="0">
-        <div class="cake-shadow"></div>
+      <div class="cake-container" id="cakeContainer">
 
         <div class="candle">
           <div class="flame" id="flame"></div>
         </div>
 
-        <div class="cake cake-top">
-          <div class="frosting-drip drip-1"></div>
-          <div class="frosting-drip drip-2"></div>
-          <div class="frosting-drip drip-3"></div>
-        </div>
+        <div class="cake cake-top"></div>
+        <div class="cake cake-middle"></div>
+        <div class="cake cake-bottom"></div>
 
-        <div class="cake cake-middle">
-          <div class="frosting-drip drip-4"></div>
-          <div class="frosting-drip drip-5"></div>
-        </div>
-
-        <div class="cake cake-bottom">
-          <div class="cake-board"></div>
-        </div>
       </div>
     </div>
 
-    <p class="cake-note">✨ Tap the cake to begin the surprise ✨</p>
+    <p class="cake-note">✨ Click the cake to begin the surprise ✨</p>
 
     <div class="wish-message hidden" id="wishMessage">
       Make a wish, Radhika Di… ✨
     </div>
 
+    <div class="next-page-wrapper hidden" id="nextPageWrapper">
+      <a href="memories.html" class="next-button">
+        Continue to Our Memories 💖
+      </a>
+    </div>
+
     <div class="confetti-container" id="confettiContainer"></div>
     <div class="hearts-container" id="heartsContainer"></div>
 
-    <audio id="bdaySong" src="birthday.mp3" preload="auto"></audio>
+    <!-- IMPORTANT: Put birthday.mp3 in the same folder -->
+    <audio id="bdaySong" preload="auto">
+      <source src="birthday.mp3" type="audio/mpeg" />
+    </audio>
+
   </main>
 
   <script src="script.js"></script>
 </body>
 </html>
+
