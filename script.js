@@ -1,3 +1,6 @@
+// =========================================
+// Floating Hearts
+// =========================================
 const createFloatingHearts = (container, count = 18) => {
   if (!container) return;
 
@@ -15,6 +18,9 @@ const createFloatingHearts = (container, count = 18) => {
   }
 };
 
+// =========================================
+// Confetti Effect
+// =========================================
 const createConfetti = (container, count = 90) => {
   if (!container) return;
 
@@ -34,6 +40,9 @@ const createConfetti = (container, count = 90) => {
   }
 };
 
+// =========================================
+// Landing Page (Cake Experience)
+// =========================================
 const initLandingPage = () => {
   const cake = document.getElementById("cakeContainer");
   if (!cake) return;
@@ -41,44 +50,62 @@ const initLandingPage = () => {
   const flame = document.getElementById("flame");
   const glow = document.querySelector(".cake-glow");
   const wishMessage = document.getElementById("wishMessage");
+  const nextPageWrapper = document.getElementById("nextPageWrapper");
   const confettiContainer = document.getElementById("confettiContainer");
   const heartsContainer = document.getElementById("heartsContainer");
   const audio = document.getElementById("bdaySong");
 
   let started = false;
 
-  const startSurprise = () => {
+  const startSurprise = async () => {
     if (started) return;
     started = true;
 
+    // Cake animation
     cake.classList.add("celebrating");
     flame?.classList.add("sparkle");
     glow?.classList.add("active");
 
+    // Play birthday song
     if (audio) {
-      audio.volume = 0.9;
-
-      audio.play().catch(() => {
-        console.log("Autoplay blocked until user interaction is fully available.");
-      });
+      try {
+        audio.currentTime = 0;
+        audio.volume = 0.9;
+        await audio.play();
+        console.log("🎵 Birthday song started successfully");
+      } catch (error) {
+        console.error("Song could not play:", error);
+        alert(
+          "Please make sure 'birthday.mp3' is present in the same folder as index.html"
+        );
+      }
     }
 
+    // Celebration effects
     createConfetti(confettiContainer, 120);
     createFloatingHearts(heartsContainer, 24);
 
+    // Show wish message
     wishMessage?.classList.remove("hidden");
 
     requestAnimationFrame(() => {
       wishMessage?.classList.add("show");
     });
 
+    // Show manual next button
     setTimeout(() => {
-      window.location.href = "memories.html";
-    }, 4000);
+      nextPageWrapper?.classList.remove("hidden");
+
+      requestAnimationFrame(() => {
+        nextPageWrapper?.classList.add("show");
+      });
+    }, 2200);
   };
 
+  // Mouse click
   cake.addEventListener("click", startSurprise);
 
+  // Keyboard accessibility
   cake.addEventListener("keydown", (event) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
@@ -87,6 +114,9 @@ const initLandingPage = () => {
   });
 };
 
+// =========================================
+// Typewriter Letter
+// =========================================
 const initTypewriter = () => {
   const target = document.getElementById("typewriterText");
   if (!target) return;
@@ -122,6 +152,9 @@ Happy Birthday, Di.
   type();
 };
 
+// =========================================
+// Continue Button
+// =========================================
 const initContinueButton = () => {
   const button = document.getElementById("continueCelebration");
 
@@ -130,6 +163,9 @@ const initContinueButton = () => {
   });
 };
 
+// =========================================
+// Balloon Game
+// =========================================
 const initBalloonGame = () => {
   const balloons = document.querySelectorAll(".balloon");
   const scoreValue = document.getElementById("scoreValue");
@@ -154,6 +190,9 @@ const initBalloonGame = () => {
   });
 };
 
+// =========================================
+// Blessing Wheel
+// =========================================
 const initBlessingWheel = () => {
   const wheel = document.getElementById("blessingWheel");
   const button = document.getElementById("spinWheelButton");
@@ -193,6 +232,9 @@ const initBlessingWheel = () => {
   });
 };
 
+// =========================================
+// Final Surprise Overlay
+// =========================================
 const initFinalSurprise = () => {
   const openButton = document.getElementById("finalSurpriseButton");
   const overlay = document.getElementById("finalOverlay");
@@ -217,6 +259,9 @@ const initFinalSurprise = () => {
   });
 };
 
+// =========================================
+// Initialize Everything
+// =========================================
 document.addEventListener("DOMContentLoaded", () => {
   initLandingPage();
   initTypewriter();
