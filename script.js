@@ -72,15 +72,10 @@ const initLandingPage = () => {
       wishMessage?.classList.add("show");
     });
 
-    const nextPageWrapper = document.getElementById("nextPageWrapper");
-
-setTimeout(() => {
-  nextPageWrapper?.classList.remove("hidden");
-
-  requestAnimationFrame(() => {
-    nextPageWrapper?.classList.add("show");
-  });
-}, 2500);
+    setTimeout(() => {
+      window.location.href = "memories.html";
+    }, 4000);
+  };
 
   cake.addEventListener("click", startSurprise);
 
