@@ -93,27 +93,56 @@ function initTypewriter() {
   const target = document.getElementById("typewriterText");
   if (!target) return;
 
-  const letter = `
+ const letter = `
 Dear Radhika Di,
 
-Wishing you a very Happy Birthday! 🎂✨
+    Wishing you a very Happy Birthday! 🎂✨
 
-The next 5 years are going to be very important for you.
-I truly believe that everything will fall into place.
+    I just want to remind you that you are capable of achieving
+    much more than you think. You have always worked hard, stayed
+    patient, and handled responsibilities with strength and maturity.
 
-• Your career will grow 🚀
-• Your goals will become reality 🎯
-• Your confidence will become stronger 💪
-• Your hard work will bring success 🌟
+    ──────────────────────
+          ✨ YOUR NEXT 5 YEARS ✨
+    ──────────────────────
 
-Step by step, sab ho jayega.
+    The next 5 years are going to be very important for you.
+    I truly believe that everything will fall into place.
 
-Keep learning, keep growing, and never doubt yourself.
+        🚀  Your career will grow
+        🎯  Your goals will become reality
+        💪  Your confidence will become stronger
+        🌟  Your hard work will bring success
 
-Happy Birthday, Di! 🌸
+    Step by step, sab ho jayega. Keep learning, keep growing,
+    and never doubt yourself.
 
-— Priyesh ❤️
-  `;
+    Challenges may come sometimes, but they will only make you
+    stronger and more successful. One day you will look back and
+    realize that all the effort was worth it.
+
+    ──────────────────────
+            🌸 MY WISHES 🌸
+    ──────────────────────
+
+        ✓  Keep progressing in your career 🚀
+        ✓  Stay healthy and confident 🌸
+        ✓  Travel, explore, and enjoy life ✨
+        ✓  Achieve every goal you have set for yourself 🎯
+
+    I am confident that the coming years will bring success,
+    happiness, stability, and many new opportunities for you.
+    Your best chapter is still ahead. 💫
+
+    Happy Birthday, Di! 🌸
+
+    Keep shining, keep winning, and remember —
+
+        ✨ THE NEXT 5 YEARS WILL CHANGE
+           EVERYTHING FOR THE BETTER ✨
+
+                                             — Priyesh ❤️
+`;
 
   let index = 0;
 
