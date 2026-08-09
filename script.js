@@ -210,9 +210,10 @@ const initBlessingWheel = () => {
 
     const index = Math.floor(Math.random() * blessings.length);
     const segment = 360 / blessings.length;
-    const extraRotation = 360 * 5 + (360 - index * segment - segment / 2);
+    const targetAngle = index * segment;
 
-    currentRotation += extraRotation;
+    currentRotation += 360 * 5 + (360 - targetAngle - segment / 2);
+
     wheel.style.transform = `rotate(${currentRotation}deg)`;
 
     result.textContent = "✨ Sending a beautiful blessing to Di...";
@@ -220,10 +221,9 @@ const initBlessingWheel = () => {
     setTimeout(() => {
       result.textContent = `May this blessing stay with Radhika Di forever 🌸 — ${blessings[index]}`;
       button.disabled = false;
-    }, 4100);
+    }, 4000);
   });
 };
-
 // =========================================
 // Final Surprise Overlay
 // =========================================
