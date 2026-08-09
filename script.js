@@ -113,7 +113,7 @@ const initTypewriter = () => {
   const target = document.getElementById("typewriterText");
   if (!target) return;
 
- cconst letter = `
+ const letter = `
 Dear Radhika Di,
 
 Wishing you a very Happy Birthday! 🎂✨
