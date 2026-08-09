@@ -85,6 +85,45 @@ function initLandingPage() {
     }, 2500);
   });
 }
+// =========================================
+// Final Surprise Overlay
+// =========================================
+const initFinalSurprise = () => {
+  const openButton = document.getElementById("finalSurpriseButton");
+  const overlay = document.getElementById("finalOverlay");
+  const closeButton = document.getElementById("closeOverlayButton");
+  const hearts = document.getElementById("overlayHearts");
+
+  // Agar overlay ya close button nahi mila to function stop
+  if (!overlay || !closeButton) return;
+
+  // Open overlay
+  if (openButton) {
+    openButton.addEventListener("click", () => {
+      overlay.classList.add("show");
+
+      if (hearts) {
+        createFloatingHearts(hearts, 32);
+      }
+    });
+  }
+
+  // Close overlay
+  closeButton.addEventListener("click", () => {
+    overlay.classList.remove("show");
+  });
+
+  // Close when clicking outside the card
+  overlay.addEventListener("click", (event) => {
+    if (event.target === overlay) {
+      overlay.classList.remove("show");
+    }
+  });
+};
+
+
+
+
 
 // =========================================
 // Typewriter
