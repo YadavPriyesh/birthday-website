@@ -1,54 +1,51 @@
 // =========================================
 // Floating Hearts
 // =========================================
-const createFloatingHearts = (container, count = 18) => {
+function createFloatingHearts(container, count = 18) {
   if (!container) return;
 
-  for (let i = 0; i < count; i += 1) {
+  for (let i = 0; i < count; i++) {
     const heart = document.createElement("div");
     heart.className = "heart-float";
     heart.textContent = Math.random() > 0.4 ? "💖" : "❤️";
-    heart.style.left = `${Math.random() * 100}%`;
-    heart.style.animationDuration = `${4 + Math.random() * 4}s`;
-    heart.style.animationDelay = `${Math.random() * 0.8}s`;
+    heart.style.left = Math.random() * 100 + "%";
+    heart.style.animationDuration = 4 + Math.random() * 4 + "s";
 
     container.appendChild(heart);
 
-    setTimeout(() => heart.remove(), 8500);
+    setTimeout(() => heart.remove(), 8000);
   }
-};
+}
 
 // =========================================
-// Confetti Effect
+// Confetti
 // =========================================
-const createConfetti = (container, count = 90) => {
+function createConfetti(container, count = 80) {
   if (!container) return;
 
-  const colors = ["#fb7185", "#f59e0b", "#fde68a", "#e11d48", "#ffffff"];
+  const colors = ["#fb7185", "#f59e0b", "#fde68a", "#e11d48"];
 
-  for (let i = 0; i < count; i += 1) {
+  for (let i = 0; i < count; i++) {
     const piece = document.createElement("span");
     piece.className = "confetti-piece";
-    piece.style.left = `${Math.random() * 100}%`;
+    piece.style.left = Math.random() * 100 + "%";
     piece.style.background = colors[Math.floor(Math.random() * colors.length)];
-    piece.style.animationDuration = `${2.5 + Math.random() * 2.5}s`;
-    piece.style.transform = `translateY(-20px) rotate(${Math.random() * 360}deg)`;
+    piece.style.animationDuration = 2 + Math.random() * 3 + "s";
 
     container.appendChild(piece);
 
-    setTimeout(() => piece.remove(), 5200);
+    setTimeout(() => piece.remove(), 5000);
   }
-};
+}
 
 // =========================================
-// Landing Page (Cake Experience)
+// Cake Page
 // =========================================
-const initLandingPage = () => {
+function initLandingPage() {
   const cake = document.getElementById("cakeContainer");
   if (!cake) return;
 
   const flame = document.getElementById("flame");
-  const glow = document.querySelector(".cake-glow");
   const wishMessage = document.getElementById("wishMessage");
   const nextPageWrapper = document.getElementById("nextPageWrapper");
   const confettiContainer = document.getElementById("confettiContainer");
@@ -57,73 +54,49 @@ const initLandingPage = () => {
 
   let started = false;
 
-  const startSurprise = async () => {
+  cake.addEventListener("click", function () {
     if (started) return;
     started = true;
 
     cake.classList.add("celebrating");
-    flame?.classList.add("sparkle");
-    glow?.classList.add("active");
+    if (flame) flame.classList.add("sparkle");
 
-    // 🎵 PLAY FULL SONG
+    // Play song
     if (audio) {
-      try {
-        audio.currentTime = 0;
-        audio.volume = 1;
-        await audio.play();
-      } catch (error) {
-        console.error("Audio error:", error);
-        alert("birthday.mp3 file same folder me rakho");
-      }
+      audio.currentTime = 0;
+      audio.volume = 1;
+      audio.play().catch(err => console.log(err));
     }
 
     createConfetti(confettiContainer, 120);
     createFloatingHearts(heartsContainer, 24);
 
-    wishMessage?.classList.remove("hidden");
-
-    requestAnimationFrame(() => {
-      wishMessage?.classList.add("show");
-    });
-
-    // ❌ NO AUTOMATIC REDIRECT
-    // Button tabhi dikhega, page khud nahi badhega
-    setTimeout(() => {
-      nextPageWrapper?.classList.remove("hidden");
-
-      requestAnimationFrame(() => {
-        nextPageWrapper?.classList.add("show");
-      });
-    }, 2500);
-  };
-
-  cake.addEventListener("click", startSurprise);
-
-  cake.addEventListener("keydown", (event) => {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      startSurprise();
+    if (wishMessage) {
+      wishMessage.classList.remove("hidden");
+      wishMessage.classList.add("show");
     }
+
+    // Show next button only
+    setTimeout(() => {
+      if (nextPageWrapper) {
+        nextPageWrapper.classList.remove("hidden");
+        nextPageWrapper.classList.add("show");
+      }
+    }, 2500);
   });
-};
+}
+
 // =========================================
-// Typewriter Letter
+// Typewriter
 // =========================================
-const initTypewriter = () => {
+function initTypewriter() {
   const target = document.getElementById("typewriterText");
   if (!target) return;
 
- const letter = `
+  const letter = `
 Dear Radhika Di,
 
 Wishing you a very Happy Birthday! 🎂✨
-
-I just want to remind you that you are capable of achieving much more than you think.
-You have always worked hard, stayed patient, and handled responsibilities with strength and maturity.
-
-━━━━━━━━━━━━━━━━━━
-✨ A Message for Your Future ✨
-━━━━━━━━━━━━━━━━━━
 
 The next 5 years are going to be very important for you.
 I truly believe that everything will fall into place.
@@ -134,62 +107,31 @@ I truly believe that everything will fall into place.
 • Your hard work will bring success 🌟
 
 Step by step, sab ho jayega.
+
 Keep learning, keep growing, and never doubt yourself.
-
-Challenges may come sometimes, but they will only make you stronger and more successful.
-One day you will look back and realize that all the effort was worth it.
-
-━━━━━━━━━━━━━━━━━━
-🌸 My Wishes for You 🌸
-━━━━━━━━━━━━━━━━━━
-
-✓ Keep progressing in your career 🚀
-✓ Stay healthy and confident 🌸
-✓ Travel, explore, and enjoy life ✨
-✓ Achieve every goal you have set for yourself 🎯
-
-I am confident that the coming years will bring success, happiness, stability, and many new opportunities for you.
-Your best chapter is still ahead. 💫
 
 Happy Birthday, Di! 🌸
 
-Keep shining, keep winning, and remember —
-THE NEXT 5 YEARS WILL CHANGE EVERYTHING FOR THE BETTER. ✨
-
 — Priyesh ❤️
-`;
+  `;
+
   let index = 0;
 
-  const cursor = document.createElement("span");
-  cursor.className = "typewriter-cursor";
-
-  const type = () => {
+  function type() {
     if (index <= letter.length) {
       target.textContent = letter.slice(0, index);
-      target.appendChild(cursor);
-      index += 1;
-      setTimeout(type, 24);
+      index++;
+      setTimeout(type, 20);
     }
-  };
+  }
 
   type();
-};
-
-// =========================================
-// Continue Button
-// =========================================
-const initContinueButton = () => {
-  const button = document.getElementById("continueCelebration");
-
-  button?.addEventListener("click", () => {
-    window.location.href = "celebration.html";
-  });
-};
+}
 
 // =========================================
 // Balloon Game
 // =========================================
-const initBalloonGame = () => {
+function initBalloonGame() {
   const balloons = document.querySelectorAll(".balloon");
   const scoreValue = document.getElementById("scoreValue");
 
@@ -197,26 +139,21 @@ const initBalloonGame = () => {
 
   let score = 100;
 
-  balloons.forEach((balloon) => {
+  balloons.forEach(balloon => {
     balloon.addEventListener("click", () => {
-      if (balloon.classList.contains("pop")) return;
-
+      score += 10;
+      scoreValue.textContent = score;
       balloon.classList.add("pop");
 
-      score = Math.min(1000, score + 10);
-      scoreValue.textContent = score;
-
-      setTimeout(() => {
-        balloon.classList.remove("pop");
-      }, 1200);
+      setTimeout(() => balloon.classList.remove("pop"), 1000);
     });
   });
-};
+}
 
 // =========================================
 // Blessing Wheel
 // =========================================
-const initBlessingWheel = () => {
+function initBlessingWheel() {
   const wheel = document.getElementById("blessingWheel");
   const button = document.getElementById("spinWheelButton");
   const result = document.getElementById("wheelResult");
@@ -231,89 +168,49 @@ const initBlessingWheel = () => {
     "Prosperity",
     "Travel",
     "Family Joy",
-    "Endless Smiles",
+    "Endless Smiles"
   ];
 
-  let currentRotation = 0;
+  let rotation = 0;
 
   button.addEventListener("click", () => {
     button.disabled = true;
 
-    const index = Math.floor(Math.random() * blessings.length);
-    const segment = 360 / blessings.length;
-    const targetAngle = index * segment;
+    const randomIndex = Math.floor(Math.random() * blessings.length);
+    rotation += 360 * 5 + randomIndex * 45;
 
-    currentRotation += 360 * 5 + (360 - targetAngle - segment / 2);
-
-    wheel.style.transform = `rotate(${currentRotation}deg)`;
-
-    result.textContent = "✨ Sending a beautiful blessing to Di...";
+    wheel.style.transform = `rotate(${rotation}deg)`;
 
     setTimeout(() => {
-      result.textContent = `May this blessing stay with Radhika Di forever 🌸 — ${blessings[index]}`;
+      result.textContent = "🌸 " + blessings[randomIndex] + " for Radhika Di!";
       button.disabled = false;
     }, 4000);
   });
-};
-// =========================================
-// Final Surprise Overlay
-// =========================================
-const initFinalSurprise = () => {
-  const openButton = document.getElementById("finalSurpriseButton");
-  const overlay = document.getElementById("finalOverlay");
-  const closeButton = document.getElementById("closeOverlayButton");
-  const hearts = document.getElementById("overlayHearts");
-
-  if (!openButton || !overlay || !closeButton) return;
-
-  openButton.addEventListener("click", () => {
-    overlay.classList.add("show");
-    createFloatingHearts(hearts, 32);
-  });
-
-  closeButton.addEventListener("click", () => {
-    overlay.classList.remove("show");
-  });
-
-  overlay.addEventListener("click", (event) => {
-    if (event.target === overlay) {
-      overlay.classList.remove("show");
-    }
-  });
-};
+}
 
 // =========================================
-// Initialize Everything
+// Page Song
 // =========================================
-document.addEventListener("DOMContentLoaded", () => {
-  initLandingPage();
-  initTypewriter();
-  initContinueButton();
-  initBalloonGame();
-  initBlessingWheel();
-  initFinalSurprise();
-});
-
-// =========================================
-// Auto play song on memories & celebration pages
-// =========================================
-const initPageSong = () => {
+function initPageSong() {
   const pageSong = document.getElementById("pageSong");
-
   if (!pageSong) return;
 
   pageSong.volume = 0.5;
 
-  const playSong = () => {
-    pageSong.play().catch(() => {});
-  };
+  pageSong.play().catch(() => {
+    document.addEventListener("click", () => {
+      pageSong.play();
+    }, { once: true });
+  });
+}
 
-  // Try immediately
-  playSong();
-
-  // Fallback for mobile browsers
-  document.addEventListener("click", playSong, { once: true });
-};
-
-// Add this inside DOMContentLoaded
-initPageSong();
+// =========================================
+// Start Everything
+// =========================================
+document.addEventListener("DOMContentLoaded", function () {
+  initLandingPage();
+  initTypewriter();
+  initBalloonGame();
+  initBlessingWheel();
+  initPageSong();
+});
